@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Acme&family=Encode+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/stylesheets/buttons.css' />
+  <script src="/javascripts/script.js" defer></script>
+  <script src="/javascripts/redirects.js" defer></script>
+  <title>ePobuda</title>
+</head>
+<body>
+  <div class="navbar-container">
+  <div class="navbar-links">
+    <h3 class="navbar-title home">Domov</h3>
+    <h3 class="navbar-title ustvari">Ustvari JN</h3>
+    <h3 class="navbar-title sort-button">Sortiraj</h3>
+    <h3 class="navbar-title filter-button">Filtriraj</h3>
+  </div>
+  <div class="navbar-user">
+    <h3 class="navbar-title">Uporabnik: <%= user %> </h3>
+    <form action="/logout" method="get">
+      <button type="submit" class="navbar-title">Izpis</button>
+    </form>
+  </div>
+  </div>
+  <div class="main-title-container"><h1>MOJE ZADEVE</h1></div>
+  
+  <div class="sorting-container hidden">
+    <h3>SORTIRAJ</h3>
+    <div class="sortiraj-flex">
+      <div class="">
+        <h5>Datum</h5>
+        <select name="datum" class="round">
+          <option value="naraščajoče">Naraščajoče</option>
+          <option value="padajoče">Padajoče</option>
+        </select>
+        <button class="searchbtn"><i class="fa fa-search"></i></button>
+      </div>
+      <div class="margin15">
+        <h5>Št. zadeve</h5>
+        <select name="stpobude" class="round">
+          <option value="naraščajoče">Naraščajoče</option>
+          <option value="padajoče">Padajoče</option>
+        </select>
+        <button class="searchbtn"><i class="fa fa-search"></i></button>
+      </div>
+      <div class="margin15">
+        <h5>Predmet</h5>
+        <select name="predmet" class="round">
+          <option value="a-z">A-Ž</option>
+          <option value="z-a">Ž-A</option>
+        </select>
+        <button class="searchbtn"><i class="fa fa-search"></i></button>
+      </div>
+      <div class="margin15">
+        <h5>Vrednost naročila</h5>
+        <select name="skupnavrednost" class="round">
+          <option value="naraščajoče">Naraščajoče</option>
+          <option value="padajoče">Padajoče</option>
+        </select>
+        <button class="searchbtn"><i class="fa fa-search"></i></button>
+      </div>
+      <div class="margin15">
+        <h5>Status zadeve</h5>
+        <select name="statuszadeve" class="round">
+          <option value="naraščajoče">Naraščajoče</option>
+          <option value="padajoče">Padajoče</option>
+        </select>
+        <button class="searchbtn"><i class="fa fa-search"></i></button>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="filter-container hidden">
+    <h3>FILTRIRAJ</h3>
+    <div class="filtriraj-flex">
+      <div class="">
+        <h5>Po statusu</h5>
+        <form action="/filter/status" method="POST">
+          <select name="statuszadeve" class="round">
+            <option value="Pobuda">Pobuda</option>
+            <option value="Pobuda v JN">Pobuda v JN</option>
+            <option value="JN v pripravi">JN v pripravi</option>
+            <option value="JN v pregledu">JN v pregledu</option>
+            <option value="JN v podpisu">JN v podpisu</option>
+            <option value="JN v objavi">JN v objavi</option>
+          </select>
+          <button class="searchbtn"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+      <div class="margin15">
+        <h5>Po izvajalcih</h5>
+        <form action="/filter/izvajalci" method="POST">
+          <select name="izvajalec" class="round">
+            <% users.forEach((u) => { %>
+              <option value="<%=u.username%>"><%=u.username%></option>  
+            <% }) %>
+          </select>
+          <button class="searchbtn"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+      <div class="margin15">
+        <h5>Po naročilnici / pogodbi</h5>
+        <form action="/filter/narocilnicapogodba" method="POST">
+          <select name="narocilnicapogodba" class="round">
+            <option value="Naročilnica">Naročilnica</option>
+            <option value="Pogodba">Pogodba</option>
+          </select>
+          <button class="searchbtn"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="main-container">
+    <% jn.forEach((j) => { %>
+      <% if (j.statuszadeve === "JN v objavi") { %>
+        <div class="single-jn-container-green">
+        <div class="naslov">
+          <h3><%= j.predmet %></h3>
+          <form action="/edit/<%=j.id%>" method="get" class="uredi-button">
+            <button class="button-13" type="submit">Uredi</button>
+          </form>
+        </div>
+        <div class="ostalo">
+          <h3><%= j.stpobude %></h3>
+          <h3>Status: <%= j.statuszadeve %></h3>
+          <h3>Izvajalec: <%=j.izvajalec %></h3>
+          <h3>Skupna vrednost: <%= j.skupnavrednost %></h3>
+          <form action="/item/<%=j.id%>" method="get">
+            <button type="submit" class="button-13">Več</button>
+          </form>
+        </div>
+      </div>  
+      <% } else {%>
+      <div class="single-jn-container">
+        <div class="naslov">
+          <h3><%= j.predmet %></h3>
+          <form action="/edit/<%=j.id%>" method="get" class="uredi-button">
+            <button class="button-13" type="submit">Uredi</button>
+          </form>
+        </div>
+        <div class="ostalo">
+          <h3><%= j.stpobude %></h3>
+          <h3>Status: <%= j.statuszadeve %></h3>
+          <h3>Izvajalec: <%=j.izvajalec %></h3>
+          <h3>Skupna vrednost: <%= j.skupnavrednost %></h3>
+          <form action="/item/<%=j.id%>" method="get">
+            <button type="submit" class="button-13">Več</button>
+          </form>
+        </div>
+      </div>
+    <% }}) %>
+  </div>
+</body>
+</html>

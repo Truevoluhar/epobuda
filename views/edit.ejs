@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Acme&family=Encode+Sans&display=swap" rel="stylesheet">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/stylesheets/ustvari.css' />
+  <link rel='stylesheet' href='/stylesheets/buttons.css' />
+  <script src="/javascripts/script.js" defer></script>
+  <script src="/javascripts/redirects.js" defer></script>
+  <title>ePobuda</title>
+</head>
+<body>
+  <div class="navbar-container">
+    <div class="navbar-links">
+      <h3 class="navbar-title home">Domov</h3>
+      <h3 class="navbar-title ustvari">Ustvari JN</h3>
+    </div>
+    <div class="navbar-user">
+      <h3 class="navbar-title">Uporabnik: <%= user %></h3>
+      <form action="/logout" method="get">
+      <button type="submit" class="navbar-title">Izpis</button>
+    </form>
+    </div>
+  </div>
+    <form action="/edit/<%= item.id %>" method="POST" class="create-container" autocomplete="off">
+      <div class="main-title-container"><h1>Uredi JN: <%= item.predmet %></h1></div>
+      <div class="create-container">
+      <div class="sklop-container">
+      <h2 class="section-title">Osnovni podatki</h2>
+        <label for="datum">Datum pobude:</label>
+        <input type="date" name="datum" value="<%=item.datum%>" />
+        <br>
+        <label for="stpobude">Številka pobude:</label>
+        <input type="text" name="stpobude" value="<%=item.stpobude%>"/>
+        <br>
+      <label for="predmet">Predmet:</label>
+      <input type="text" name="predmet" value="<%=item.predmet%>"/>
+      <br>
+      <label for="predlagatelj">Predlagatelj:</label>
+      <input type="text" name="predlagatelj" value="<%=item.predlagatelj%>"/>
+      <br>
+      <label for="izvajalec">Izvajalec:</label>
+      <select name="izvajalec" value="<%=item.izvajalec%>"/>
+        <option value="<%=item.izvajalec%>"><%=item.izvajalec%></option>
+        <option value=" " disabled> </option>
+        <% users.forEach((x) => { %>
+          <option value="<%=x.name%>"><%=x.name%></option>
+        <% }) %>
+      </select>
+      <label for="narocilnicapogodba">Naročilnica / pogodba:</label>
+      <select name="narocilnicapogodba" value="<%=item.narocilnicapogodba%>" />
+        <option value="<%=item.narocilnicapogodba%>"><%=item.narocilnicapogodba%></option>
+        <option value=" " disabled> </option>
+        <option value="Naročilnica">Naročilnica</option>
+        <option value="Pogodba">Pogodba</option>
+      </select>
+      <br>
+      <label for="stnarocilnicepogodbe">Št. naročilnice / pogodbe: </label>
+      <input type="text" name="stnarocilnicepogodbe" value="<%=item.stnarocilnicepogodbe%>"/>
+      <br>
+      <label for="statuszadeve">Status JN:</label>
+      <select name="statuszadeve" value="<%=item.statuszadeve%>"/>
+        <option value="<%=item.statuszadeve%>"><%=item.statuszadeve%></option>
+        <option value=" " disabled> </option>
+        <option value="Pobuda">Pobuda</option>
+        <option value="Pobuda v JN">Pobuda v JN</option>
+        <option value="JN v pripravi">JN v pripravi</option>
+        <option value="JN v pregledu">JN v pregledu</option>
+        <option value="JN v podpisu">JN v podpisu</option>
+        <option value="JN v objavi">JN v objavi</option>
+      </select>
+      <br>
+      <br>
+      <br>
+      <br>
+      </div>
+      <div class="sklop-container">
+      <h2 class="section-title">Finančni podatki</h2>
+      <label for="pp">Proračunska postavka: </label>
+      <input type="text" name="pp" value="<%=item.pp%>"/>
+      <br>
+      <label for="nrp">NRP: </label>
+      <input type="text" name="nrp" value="<%=item.nrp%>"/>
+      <br>
+      <label for="konto">Konto: </label>
+      <input type="text" name="konto" value="<%=item.konto%>"/>
+      <br>
+      <label for="podkonto">Podkonto: </label>
+      <input type="text" name="podkonto" value="<%=item.podkonto%>"/>
+      <br>
+      <br>
+      <br>
+      </div>
+      <div class="sklop-container">
+      <h2 class="section-title">Skupna vrednost in črpanje po letih</h2>
+      <label for="skupnavrednost">Skupna vrednost:</label>
+      <input type="text" name="skupnavrednost" value="<%=item.skupnavrednost%>"/>
+      <br>
+      <label for="2023">2023:</label>
+      <input type="text" name="l2023" value="<%=item.l2023%>"/>
+      <br>
+      <label for="2024">2024:</label>
+      <input type="text" name="l2024" value="<%=item.l2024%>"/>
+      <br>
+      <label for="2025">2025:</label>
+      <input type="text" name="l2025" value="<%=item.l2025%>"/>
+      <br>
+      <label for="2026">2026:</label>
+      <input type="text" name="l2026" value="<%=item.l2026%>"/>
+      <br>
+      <label for="2027">2027:</label>
+      <input type="text" name="l2027" value="<%=item.l2027%>"/>
+      <br>
+      <label for="2028">2028:</label>
+      <input type="text" name="l2028" value="<%=item.l2028%>"/>
+      <br>
+      <br>
+      <br>
+      </div>
+      
+        </div>
+      <br>
+      <div class="button-container">
+        <button type="submit" class="button-13">Uredi JN</button>
+      </div>
+      <br>
+      <br>
+    </form>
+</body>
+</html>

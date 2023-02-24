@@ -1,0 +1,13 @@
+.item-container {
+  width: 800px;
+  max-width: 90vw;
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
+  margin-bottom: 25px;
+}
+
+.single-title {
+  margin-bottom: 20px;
+}

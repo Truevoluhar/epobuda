@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Acme&family=Encode+Sans&display=swap" rel="stylesheet">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/stylesheets/buttons.css' />
+  <link rel='stylesheet' href='/stylesheets/single.css' />
+  <link rel='stylesheet' href='/stylesheets/ustvari.css' />
+  <script src="/javascripts/script.js" defer></script>
+  <script src="/javascripts/redirects.js" defer></script>
+  <title>ePobuda</title>
+</head>
+<body>
+  <div class="navbar-container">
+    <div class="navbar-links">
+      <h3 class="navbar-title home">Domov</h3>
+      <h3 class="navbar-title ustvari">Ustvari JN</h3>
+    </div>
+    <div class="navbar-user">
+      <h3 class="navbar-title">Uporabnik <%= user %> </h3>
+      <form action="/logout" method="get">
+        <button type="submit" class="navbar-title">Izpis</button>
+      </form>
+    </div>
+  </div>
+  <div class="main-container">
+    <h2><%= item.predmet %></h2>
+    <div class="item-container">
+      <h2 class="single-title">Osnovni podatki</h2>
+      <br>
+      <div class="thin-line"></div>
+      <p>Datum:</p>
+      <h3><%= item.datum %></h3>
+      <br>
+      <p>Predmet:</p>
+      <h3><%= item.predmet %></h3>
+      <br>
+      <p>Status JN:</p>
+      <h3><%= item.statuszadeve %></h3>
+      <br>
+      <p>Številka pobude:</p>
+      <h3><%= item.stpobude %></h3>
+      <br>
+      <p>Predlagatelj:</p>
+      <h3><%= item.predlagatelj %></h3>
+      <br>
+      <p>Izvajalec:</p>
+      <h3><%= item.izvajalec %></h3>
+      <br>
+      <p>Naročilnica / pogodba:</p>
+      <h3><%= item.narocilnicapogodba %></h3>
+      <br>
+      <p>Številka naročilnice / pogodbe:</p>
+      <h3><%= item.stnarocilnicepogodbe %></h3>
+      <p>Številka zadeve v zbirki:</p>
+      <h3><%= item.stzadevevzbirki %></h3>
+    </div>
+    <div class="item-container">
+      <h2 class="single-title">Finančni podatki</h2>
+      <br>
+      <p>Proračunska postavka</p>
+      <h3><%= item.pp %></h3>
+      <br>
+      <p>NRP:</p>
+      <h3><%= item.nrp %></h3>
+      <br>
+      <p>Konto:</p>
+      <h3><%= item.konto %></h3>
+      <br>
+      <p>Podkonto:</p>
+      <h3><%= item.podkonto %></h3>
+      <br>
+    </div>
+    <div class="item-container">
+      <h2 class="single-title">Skupna vrednost in poraba po letih</h2>
+      <br>
+      <p>Skupna vrednost</p>
+      <h3><%= item.skupnavrednost %></h3>
+      <br>
+      <p>2022</p>
+      <h3><%= item.l2022 %></h3>
+      <br>
+      <p>2023</p>
+      <h3><%= item.l2023 %></h3>
+      <br>
+      <p>2024</p>
+      <h3><%= item.l2024 %></h3>
+      <br>
+      <p>2025</p>
+      <h3><%= item.l2025 %></h3>
+      <br>
+      <p>2026</p>
+      <h3><%= item.l2026 %></h3>
+      <br>
+      <p>2027</p>
+      <h3><%= item.l2027 %></h3>
+      <br>
+      <p>2028</p>
+      <h3><%= item.l2028 %></h3>
+      <br>
+    </div>
+  </div>
+  <br>
+  <div class="button-container">
+  <form action="/delete/<%=item.id%>?_method=DELETE" method="post">
+      <button type="submit" class="button-13">Izbriši</button>
+      </form>
+    </div>
+  <br>
+  <br>
+  <br>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Acme&family=Encode+Sans&display=swap" rel="stylesheet">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/stylesheets/login.css' />
+  <link rel='stylesheet' href='/stylesheets/buttons.css' />
+  <title>ePobuda</title>
+</head>
+<body>
+  <div class="main-login-container">
+    <form action="/register" method="POST">
+      <h2 class="login-title">Registracija</h2>
+      <label for="username">Uporabniško ime</label>
+      <input type="text" name="username" class="input-style" />
+      <label for="name">Ime in priimek</label>
+      <input type="text" name="name" class="input-style" />
+      <label for="password">Geslo</label>
+      <input type="password" name="password" class="input-style" />
+      <label for="password2">Ponovi geslo</label>
+      <input type="password" name="password2" class="input-style" />
+      <button type="submit" class="button-13">Registracija</button>
+    </form>
+    <h2 class="logreg-response"><%= response %></h2>
+  </div>
+</body>
+</html>

@@ -1,0 +1,253 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #F8F8FF;
+  overflow-x: hidden;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.hidden {
+  display: none;
+}
+
+.flex {
+  display: flex;
+  transition: 
+}
+
+
+.navbar-container {
+  background: #006494;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
+}
+
+.navbar-links {
+  display: flex;
+  flex-direction: row;
+  margin-left: 40px;
+ 
+}
+
+.navbar-user {
+  display: flex;
+  flex-direction: row;
+  margin-right: 40px;
+}
+
+.navbar-title {
+  margin: 25px;
+  cursor: pointer;
+  padding:5px;
+}
+
+.navbar-title:hover {
+  background: #fff;
+  color: #000;
+  border-radius: 3px;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 35px;
+}
+
+.main-title-container {
+  width: 100vw;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.sorting-container {
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: #AFDBF5;
+  width: 100vw;
+  filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
+}
+
+.sortiraj-flex {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.sortiraj-single {
+  display: lfex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.single-jn-container {
+  width: 1250px;
+  max-width: 90vw;
+  border: 1px solid black;
+  border-radius: 3.5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #fff;
+  font-size: 0.7rem;
+}
+
+.single-jn-container:hover {
+  filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.2));
+}
+
+.naslov {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.ostalo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.uredi-button {
+  display: flex;
+  align-items: center;
+}
+
+
+
+select {
+
+  /* styling */
+  background-color: white;
+  border: thin solid blue;
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+
+  /* reset */
+
+  margin: 0;      
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+select.round {
+  background-image:
+    linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+}
+
+select.round:focus {
+  background-image:
+    linear-gradient(45deg, green 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, green 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position:
+    calc(100% - 15px) 1em,
+    calc(100% - 20px) 1em,
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+  border-color: green;
+  outline: 0;
+}
+
+
+select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+.single-jn-container-green {
+  width: 1250px;
+  max-width: 90vw;
+  border: 1px solid black;
+  border-radius: 3.5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #BEE5BF;
+  font-size: 0.7rem;
+}
+
+.single-jn-container-green:hover {
+  filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.2));
+}
+
+.margin15 {
+  margin-left: 35px; 
+}
+
+input {
+  height: 30px;
+  margin-bottom: 14px;
+  width: 170px;
+}
+
+
+
+
+
+/* Filter */
+
+
+.filter-container {
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: #33658A;
+  width: 100vw;
+  filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
+  color: white;
+}
+
+.filtriraj-flex {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.filter-single {
+  display: lfex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: 20px;
+  margin-right: 20px;
+}
