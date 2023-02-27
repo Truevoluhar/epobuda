@@ -151,7 +151,7 @@ router.post('/ustvari', isAuth, async (req, res) => {
 
 router.get("/item/:id", isAuth, async (req, res) => {
   const item = await JNModel.findById(req.params.id);
-  res.render('single', { item: item, user: req.session.username });
+  res.render('single', { item: item, user: req.session.username, helper: helper });
 })
 
 

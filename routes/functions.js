@@ -1,6 +1,10 @@
 function AddDot(x) {
+  if (x == undefined) {
+    return " ";
+  }
   let str = x.toString();
   let arr = str.split("");
+
   if (arr.length === 4) {
     arr.splice(1, 0, ".");
     let final = arr.join("");
